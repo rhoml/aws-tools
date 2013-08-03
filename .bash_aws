@@ -1,0 +1,35 @@
+
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+export AWS_HOME=~/.ec2
+export EC2_REGION=eu-west-1
+
+## Needed Variables
+AutoScaling=`ls $AWS_HOME/aws-tools | grep AutoScaling`
+ElasticBeanstalk=`ls $AWS_HOME/aws-tools | grep AWS-ElasticBeanstalk`
+Cloudwatch=`ls $AWS_HOME/aws-tools | grep CloudWatch`
+ElasticLoadBalancing=`ls $AWS_HOME/aws-tools | grep ElasticLoadBalancing`
+IAMCLI=`ls $AWS_HOME/aws-tools | grep IAM`
+RDSCLI=`ls $AWS_HOME/aws-tools | grep RDS`
+EC2API=`ls $AWS_HOME/aws-tools | grep ec2-api-`
+
+## Amazon AWS x.509 certificate and AWS Credentials
+export EC2_PRIVATE_KEY=`ls $AWS_HOME/pk.pem`
+export EC2_CERT=`ls $AWS_HOME/cert.pem`
+export AWS_CREDENTIAL_FILE=~/.ec2/aws-credential
+
+## Configure Endpoints
+export CLOUDWATCH_URL=https://monitoring.$EC2_REGION.amazonaws.com
+export EC2_URL=https://ec2.$EC2_REGION.amazonaws.com
+export RDS_URL=https://rds.$EC2_REGION.amazonaws.com
+export AUTO_SCALING_URL=https://autoscaling.$EC2_REGION.amazonaws.com
+export IAM_URL=https://iam.amazonaws.com
+export ELB_URL=https://elasticloadbalancing.$EC2_REGION.amazonaws.com
+
+## Amazon AWS Variables
+export AWS_CLOUDWATCH_HOME=$AWS_HOME/aws-tools/$Cloudwatch
+export AWS_RDS_HOME=$AWS_HOME/aws-tools/$RDSCLI
+export AWS_AUTO_SCALING_HOME=$AWS_HOME/aws-tools/$AutoScaling
+export AWS_IAM_HOME=$AWS_HOME/aws-tools/$IAMCLI
+export AWS_ELB_HOME=$AWS_HOME/aws-tools/$ElasticLoadBalancing
+export EC2_HOME=$AWS_HOME/aws-tools/$EC2API
+export PATH=$PATH:$EC2_HOME/bin:$AWS_CLOUDWATCH_HOME/bin:$AWS_RDS_HOME/bin:$AWS_AUTO_SCALING_HOME/bin:$AWS_IAM_HOME/bin:$AWS_ELB_HOME/bin
