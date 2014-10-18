@@ -6,12 +6,12 @@ NAME=instance01
 ENVIRONMENT=production
 AMI_ID=ami-ae62d7c6
 KERNEL_ID=aki-919dcaf8
-KEY_ID=3scale2014
+KEY_ID=key_id
 INSTANCE_TYPE='m3.large'
 EC2_RUN_INSTANCES=`which ec2-run-instances`
 EC2_DESCRIBE_INSTANCES=`which ec2-describe-instances`
 EC2_CREATE_TAGS=`which ec2-create-tags`
-SEC_ID='backend-listener'
+SEC_ID='sg'
 AMAZON_AZ='us-east-1b'
 USER_DATA='instance01-cloudinit.txt'
 
